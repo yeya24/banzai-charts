@@ -8,7 +8,7 @@ debug: false
 server:
   image:
     repository: ubercadence/server
-    tag: 0.23.2
+    tag: 0.24.0
     pullPolicy: IfNotPresent
 
   # Global default settings (can be overridden per service)
@@ -158,7 +158,6 @@ server:
           user: ""
           password: ""
           existingSecret: ""
-          consistency: One
           # datacenter: "us-east-1a"
           # maxConns: 2
 
@@ -189,7 +188,6 @@ server:
           user: ""
           password: ""
           existingSecret: ""
-          consistency: One
           # datacenter: "us-east-1a"
           # maxConns: 2
 
@@ -216,6 +214,7 @@ server:
       type: ClusterIP
       grpcPort: 7833
       port: 7933
+      transport: grpc # grpc or tchannel
       annotations: {}
     metrics:
       annotations: {}
@@ -312,7 +311,7 @@ web:
 
   image:
     repository: ubercadence/web
-    tag: v3.29.5
+    tag: v3.32.0
     pullPolicy: IfNotPresent
 
   tcheck:

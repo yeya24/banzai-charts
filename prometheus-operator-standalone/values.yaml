@@ -19,7 +19,7 @@ kubeTargetVersionOverride: ""
 fullnameOverride: ""
 
 
-
+pspEnabled: false
 pspAnnotations: {}
 ## Specify pod annotations
 ## Ref: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#apparmor
@@ -187,7 +187,7 @@ prometheusOperator:
   ##
   image:
     repository: quay.io/prometheus-operator/prometheus-operator
-    tag: v0.52.1
+    tag: v0.63.0
     pullPolicy: IfNotPresent
 
   ## K8S image
@@ -199,10 +199,10 @@ prometheusOperator:
     resources:
       limits:
         cpu: 100m
-        memory: 300Mi
+        memory: 1000Mi
       requests:
         cpu: 50m
-        memory: 150Mi
+        memory: 500Mi
 
   createCustomResource: true
 
@@ -214,7 +214,7 @@ prometheusOperator:
   ##
   prometheusConfigReloaderImage:
     repository: quay.io/prometheus-operator/prometheus-config-reloader
-    tag: v0.52.1
+    tag: v0.63.0
     sha: ""
 
   ## Set the prometheus config reloader side-car CPU limit
